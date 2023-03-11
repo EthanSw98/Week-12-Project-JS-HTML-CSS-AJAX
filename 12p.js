@@ -22,7 +22,7 @@ class CommentService {
     }
 
     static updateComment(id){
-        let comment = document.getElementById('updateText').value;
+        let comment = document.getElementById(`updateText${id}`).value;
 
         return $.ajax({
             url: this.url + `/` + id,
@@ -83,7 +83,7 @@ class DOMManager {
                     <div class="framed secondary">
                         <h4>${comment.name}</h4>
                         <p>${comment.comment}</p>
-                        <input type="text" id="updateText" placeholder="Update your sighting">
+                        <input type="text" id="updateText${comment.id}" placeholder="Update your sighting">
                         <button  onClick="DOMManager.updateComment('${comment.id}')"> Update </button>
                         <button  onClick="DOMManager.deleteComment('${comment.id}')"> Delete </button>
                     </div>
